@@ -1,0 +1,13 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/Programing Education/eris - engine/build/cmake_install.cmake",
+		"D:/Programing Education/eris - engine/build/external/stb/cmake_install.cmake",
+		"D:/Programing Education/eris - engine/build/external/glad/cmake_install.cmake",
+		"D:/Programing Education/eris - engine/build/external/SDL/cmake_install.cmake",
+		"D:/Programing Education/eris - engine/build/external/assimp/cmake_install.cmake",
+		"D:/Programing Education/eris - engine/build/external/assimp/contrib/zlib/cmake_install.cmake",
+		"D:/Programing Education/eris - engine/build/external/assimp/code/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
