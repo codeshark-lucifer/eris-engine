@@ -10,6 +10,7 @@
 #include <engine/buffers/fbo.hpp>
 #include <engine/buffers/sbo.hpp>
 #include <engine/buffers/quad.hpp>
+#include <engine/skybox.hpp>
 
 #include <iostream>
 #include <cassert>
@@ -31,6 +32,7 @@ public:
         bufferShader = std::make_unique<Shader>("assets/shaders/screen.glsl");
 
         framebuffer.Create(width, height, true, 8);
+        skybox.Create("assets/textures/skybox");
     }
 
     void Start(const std::unordered_map<EntityID, std::unique_ptr<Entity>> &entities) override
@@ -88,6 +90,15 @@ public:
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glEnable(GL_DEPTH_TEST);
+
+        if(!isCycle)
+        {
+            // Draw skybox first
+            glDepthMask(GL_FALSE); // Disable depth writing
+            skybox.Draw(defaultCamera);
+            glDepthMask(GL_TRUE); // Re-enable depth writing for normal objects
+        }
+
         defaultShader->Use();
         defaultCamera->SetUniform(*defaultShader);
         int lightCount = 0;
@@ -162,6 +173,8 @@ private:
     Camera *defaultCamera = nullptr;
     FBO framebuffer;
     Quad screen;
+    Skybox skybox;
+    bool isCycle = true;
 
     void AddLight(Light *light)
     {

@@ -76,6 +76,14 @@ build CMakeFiles/engine.dir/src/core/color.cpp.obj: CXX_COMPILER__engine_unscann
   OBJECT_FILE_DIR = CMakeFiles\engine.dir\src\core
   TARGET_SUPPORT_DIR = CMakeFiles\engine.dir
 
+build CMakeFiles/engine.dir/src/core/matrix.cpp.obj: CXX_COMPILER__engine_unscanned_ D$:/Programing$ Education/eris$ -$ engine/src/core/matrix.cpp || cmake_object_order_depends_target_engine
+  DEP_FILE = CMakeFiles\engine.dir\src\core\matrix.cpp.obj.d
+  FLAGS = -static -static-libgcc -static-libstdc++ -std=gnu++20
+  INCLUDES = -I"D:/Programing Education/eris - engine/include" -I"D:/Programing Education/eris - engine/build/external/assimp/include" -I"D:/Programing Education/eris - engine/external/assimp/code/../include" -I"D:/Programing Education/eris - engine/build/external/assimp/code/../include" -I"D:/Programing Education/eris - engine/build/external/SDL/include-revision" -I"D:/Programing Education/eris - engine/external/SDL/include" -I"D:/Programing Education/eris - engine/external/glad/include" -I"D:/Programing Education/eris - engine/external/stb/include"
+  OBJECT_DIR = CMakeFiles\engine.dir
+  OBJECT_FILE_DIR = CMakeFiles\engine.dir\src\core
+  TARGET_SUPPORT_DIR = CMakeFiles\engine.dir
+
 build CMakeFiles/engine.dir/src/core/scene.cpp.obj: CXX_COMPILER__engine_unscanned_ D$:/Programing$ Education/eris$ -$ engine/src/core/scene.cpp || cmake_object_order_depends_target_engine
   DEP_FILE = CMakeFiles\engine.dir\src\core\scene.cpp.obj.d
   FLAGS = -static -static-libgcc -static-libstdc++ -std=gnu++20
@@ -116,7 +124,7 @@ build CMakeFiles/engine.dir/src/main.cpp.obj: CXX_COMPILER__engine_unscanned_ D$
 #############################################
 # Link the executable engine.exe
 
-build engine.exe: CXX_EXECUTABLE_LINKER__engine_ CMakeFiles/engine.dir/src/core/buffers/fbo.cpp.obj CMakeFiles/engine.dir/src/core/buffers/quad.cpp.obj CMakeFiles/engine.dir/src/core/buffers/sbo.cpp.obj CMakeFiles/engine.dir/src/core/color.cpp.obj CMakeFiles/engine.dir/src/core/scene.cpp.obj CMakeFiles/engine.dir/src/core/shader.cpp.obj CMakeFiles/engine.dir/src/engine/platform.cpp.obj CMakeFiles/engine.dir/src/main.cpp.obj | external/assimp/lib/libassimp.a external/SDL/libSDL3.a external/glad/libglad.a external/stb/libstb.a external/assimp/contrib/zlib/libzlibstatic.a || external/SDL/libSDL3.a external/assimp/contrib/zlib/libzlibstatic.a external/assimp/lib/libassimp.a external/glad/libglad.a external/stb/libstb.a
+build engine.exe: CXX_EXECUTABLE_LINKER__engine_ CMakeFiles/engine.dir/src/core/buffers/fbo.cpp.obj CMakeFiles/engine.dir/src/core/buffers/quad.cpp.obj CMakeFiles/engine.dir/src/core/buffers/sbo.cpp.obj CMakeFiles/engine.dir/src/core/color.cpp.obj CMakeFiles/engine.dir/src/core/matrix.cpp.obj CMakeFiles/engine.dir/src/core/scene.cpp.obj CMakeFiles/engine.dir/src/core/shader.cpp.obj CMakeFiles/engine.dir/src/engine/platform.cpp.obj CMakeFiles/engine.dir/src/main.cpp.obj | external/assimp/lib/libassimp.a external/SDL/libSDL3.a external/glad/libglad.a external/stb/libstb.a external/assimp/contrib/zlib/libzlibstatic.a || external/SDL/libSDL3.a external/assimp/contrib/zlib/libzlibstatic.a external/assimp/lib/libassimp.a external/glad/libglad.a external/stb/libstb.a
   FLAGS = -static -static-libgcc -static-libstdc++
   LINK_LIBRARIES = external/assimp/lib/libassimp.a  external/SDL/libSDL3.a  external/glad/libglad.a  external/stb/libstb.a  -lwinmm  -limm32  -lsetupapi  -lversion  -lole32  -loleaut32  -luuid  -ladvapi32  -lshell32  -luser32  -lgdi32  external/assimp/contrib/zlib/libzlibstatic.a  -static-libgcc  -static-libstdc++  -Wl,-Bstatic  -lstdc++  -lwinpthread  -lm  -lkernel32  -lwinmm  -limm32  -lsetupapi  -lversion  -lole32  -loleaut32  -luuid  -ladvapi32  -lshell32  -luser32  -lgdi32  -ldinput8  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\engine.dir

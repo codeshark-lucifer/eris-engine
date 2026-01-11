@@ -1,5 +1,5 @@
 # ninja log v7
-50	103	7898045102674398	D:/Programing Education/eris - engine/build/CMakeFiles/cmake.verify_globs	8fe5eb9a5f69384
+50	146	7898076163898280	D:/Programing Education/eris - engine/build/CMakeFiles/cmake.verify_globs	8fe5eb9a5f69384
 188	4127	7895946747470458	external/SDL/CMakeFiles/SDL_uclibc.dir/src/libm/e_log10.c.obj	ad6576e8680855d4
 213	4145	7895946747711137	external/SDL/CMakeFiles/SDL_uclibc.dir/src/libm/e_sqrt.c.obj	fc5d091c81e821e
 205	4222	7895946747646039	external/SDL/CMakeFiles/SDL_uclibc.dir/src/libm/e_rem_pio2.c.obj	2c423babfc36ddd3
@@ -487,13 +487,13 @@
 164904	167332	7895948394634700	external/assimp/code/CMakeFiles/assimp.dir/__/contrib/Open3DGC/o3dgcTriangleFans.cpp.obj	1d2755580b89da2f
 160613	167469	7895948351874334	external/assimp/code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/OpenDDLParser.cpp.obj	2d8570f312684318
 167483	168294	7895948420413231	external/stb/libstb.a	121033f27052282d
-199	2058	7897532344833204	CMakeFiles/engine.dir/src/core/shader.cpp.obj	3c7ecd1a82aa8c70
+228	2193	7898076069140358	CMakeFiles/engine.dir/src/core/shader.cpp.obj	3c7ecd1a82aa8c70
 168321	168963	7895948429101295	external/glad/libglad.a	1d1261b912e00438
 167014	169307	7895948415731494	CMakeFiles/engine.dir/src/engine/platform.cpp.obj	97f41df3c16d3c74
 168997	169684	7895948435598637	external/SDL/CMakeFiles/SDL3_test.dir/src/test/SDL_test_assert.c.obj	514e30035fde5d2d
 169696	170351	7895948442779801	external/SDL/CMakeFiles/SDL3_test.dir/src/test/SDL_test_compare.c.obj	36556be483d83a50
 169325	170527	7895948439076451	external/SDL/CMakeFiles/SDL3_test.dir/src/test/SDL_test_common.c.obj	ad4641c57fd7996e
-146	2634	7898045103633218	CMakeFiles/engine.dir/src/main.cpp.obj	7395334043a4072a
+234	3521	7898076069195516	CMakeFiles/engine.dir/src/main.cpp.obj	7395334043a4072a
 160292	170954	7895948348672921	external/assimp/code/CMakeFiles/assimp.dir/__/contrib/clipper/clipper.cpp.obj	92889c3b67d8052b
 168589	171032	7895948431594332	external/SDL/libSDL3.a	63bdac220d6add97
 170355	171111	7895948449475557	external/SDL/CMakeFiles/SDL3_test.dir/src/test/SDL_test_crc32.c.obj	b403c33636c6e438
@@ -501,7 +501,7 @@
 170892	171529	7895948454504874	external/SDL/CMakeFiles/SDL3_test.dir/src/test/SDL_test_fuzzer.c.obj	986f0fd81fffcb8
 171033	171586	7895948455916448	external/SDL/CMakeFiles/SDL3_test.dir/src/test/SDL_test_log.c.obj	afd2a2a18c9bd9ea
 170955	171632	7895948455179421	external/SDL/CMakeFiles/SDL3_test.dir/src/test/SDL_test_harness.c.obj	6146fff1748219ee
-150	3827	7898044698907396	CMakeFiles/engine.dir/src/core/scene.cpp.obj	a35dfea6120e6c2b
+221	4590	7898076069075111	CMakeFiles/engine.dir/src/core/scene.cpp.obj	a35dfea6120e6c2b
 171115	171733	7895948456739147	external/SDL/CMakeFiles/SDL3_test.dir/src/test/SDL_test_md5.c.obj	88feb21f87fa1fa6
 171436	173877	7895948459943257	external/SDL/CMakeFiles/SDL3_test.dir/src/test/SDL_test_memory.c.obj	b9fbeeee743914f2
 150996	174076	7895948255556311	external/assimp/code/CMakeFiles/assimp.dir/AssetLib/glTF/glTFImporter.cpp.obj	27b103e956effc8c
@@ -510,11 +510,13 @@
 165127	180298	7895948396968612	external/assimp/code/CMakeFiles/assimp.dir/__/contrib/pugixml/src/pugixml.cpp.obj	9dd76607a6477492
 151350	182600	7895948259089133	external/assimp/code/CMakeFiles/assimp.dir/AssetLib/glTF2/glTF2Importer.cpp.obj	804d6a8d53450dc4
 182600	183861	7895948571589212	external/assimp/lib/libassimp.a	d8c4cd3337a8d195
-2635	4045	7898045128516549	engine.exe	7fdf81dbcec0cfa7
+485	2165	7898076168253976	engine.exe	e4904e33ccc8c6eb
 275	1457	7897118212032865	CMakeFiles/engine.dir/src/core/buffers/fbo.cpp.obj	f0a3413ff33fa9c9
 186	1287	7897532344713283	CMakeFiles/engine.dir/src/core/buffers/quad.cpp.obj	23bcf0a26f9c3593
 148	637	7897522604480960	CMakeFiles/engine.dir/src/core/color.cpp.obj	eaa4ffb1c42cd72a
-251	2459	7897524330910104	CMakeFiles/engine.dir/src/core/buffers/sbo.cpp.obj	70e4fc5d0f3bca99
-53	110	7898045228905400	D:/Programing Education/eris - engine/build/CMakeFiles/cmake.verify_globs	8fe5eb9a5f69384
-151	2530	7898045229878925	CMakeFiles/engine.dir/src/main.cpp.obj	7395334043a4072a
-2531	3891	7898045253678425	engine.exe	7fdf81dbcec0cfa7
+211	1819	7898076068975894	CMakeFiles/engine.dir/src/core/buffers/sbo.cpp.obj	70e4fc5d0f3bca99
+190	485	7898076165302486	CMakeFiles/engine.dir/src/core/matrix.cpp.obj	c85dbffcfb5f3a88
+48	100	7898077288677675	D:/Programing Education/eris - engine/build/CMakeFiles/cmake.verify_globs	8fe5eb9a5f69384
+143	2790	7898077289630916	CMakeFiles/engine.dir/src/main.cpp.obj	7395334043a4072a
+139	3859	7898077289590910	CMakeFiles/engine.dir/src/core/scene.cpp.obj	a35dfea6120e6c2b
+3859	5220	7898077326789803	engine.exe	e4904e33ccc8c6eb

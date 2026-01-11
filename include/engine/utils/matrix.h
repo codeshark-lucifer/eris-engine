@@ -4,6 +4,82 @@
 #include "vector.h"
 #include "quat.h"
 
+struct mat4; // forward declaration
+struct mat3
+{
+    // Column-major (OpenGL style)
+    float m[9];
+
+    mat3()
+    {
+        std::memset(m, 0, sizeof(m));
+    }
+
+    static mat3 Identity()
+    {
+        mat3 r;
+        r.m[0] = 1.0f;
+        r.m[4] = 1.0f;
+        r.m[8] = 1.0f;
+        return r;
+    }
+
+    static mat3 Translate(const vec2 &t)
+    {
+        mat3 r = Identity();
+        r.m[6] = t.x;
+        r.m[7] = t.y;
+        return r;
+    }
+
+    static mat3 Scale(const vec2 &s)
+    {
+        mat3 r = Identity();
+        r.m[0] = s.x;
+        r.m[4] = s.y;
+        return r;
+    }
+
+    static mat3 Rotate(float radians)
+    {
+        mat3 r = Identity();
+        float c = std::cos(radians);
+        float s = std::sin(radians);
+
+        r.m[0] = c;
+        r.m[1] = s;
+        r.m[3] = -s;
+        r.m[4] = c;
+
+        return r;
+    }
+
+    vec2 MultiplyPoint(const vec2 &v) const
+    {
+        return {
+            m[0] * v.x + m[3] * v.y + m[6],
+            m[1] * v.x + m[4] * v.y + m[7]};
+    }
+
+    mat3 operator*(const mat3 &o) const
+    {
+        mat3 r;
+        for (int c = 0; c < 3; c++)
+        {
+            for (int r0 = 0; r0 < 3; r0++)
+            {
+                r.m[c * 3 + r0] =
+                    m[0 * 3 + r0] * o.m[c * 3 + 0] +
+                    m[1 * 3 + r0] * o.m[c * 3 + 1] +
+                    m[2 * 3 + r0] * o.m[c * 3 + 2];
+            }
+        }
+        return r;
+    }
+    mat3(const mat4 &mat4_);
+
+};
+
 struct mat4
 {
     float m[16];
@@ -19,6 +95,54 @@ struct mat4
             m[i] = v;
     }
 
+    // Construct mat4 from mat3 (upper-left 3x3), rest identity
+    mat4(const mat3 &mat3_)
+    {
+        m[0] = mat3_.m[0];
+        m[1] = mat3_.m[1];
+        m[2] = mat3_.m[2];
+        m[3] = 0.0f;
+        m[4] = mat3_.m[3];
+        m[5] = mat3_.m[4];
+        m[6] = mat3_.m[5];
+        m[7] = 0.0f;
+        m[8] = mat3_.m[6];
+        m[9] = mat3_.m[7];
+        m[10] = mat3_.m[8];
+        m[11] = 0.0f;
+        m[12] = 0.0f;
+        m[13] = 0.0f;
+        m[14] = 0.0f;
+        m[15] = 1.0f;
+    }
+
+    // Construct mat4 from mat3 + translation vec3
+    mat4(const mat3 &mat3_, const vec3 &t)
+    {
+        m[0] = mat3_.m[0];
+        m[1] = mat3_.m[1];
+        m[2] = mat3_.m[2];
+        m[3] = 0.0f;
+        m[4] = mat3_.m[3];
+        m[5] = mat3_.m[4];
+        m[6] = mat3_.m[5];
+        m[7] = 0.0f;
+        m[8] = mat3_.m[6];
+        m[9] = mat3_.m[7];
+        m[10] = mat3_.m[8];
+        m[11] = 0.0f;
+        m[12] = t.x;
+        m[13] = t.y;
+        m[14] = t.z;
+        m[15] = 1.0f;
+    }
+
+    // Copy constructor
+    mat4(const mat4 &other)
+    {
+        for (int i = 0; i < 16; i++)
+            m[i] = other.m[i];
+    }
     static mat4 Identity()
     {
         mat4 r;
@@ -152,75 +276,4 @@ struct mat4
     }
 };
 
-struct mat3
-{
-    // Column-major (OpenGL style)
-    float m[9];
 
-    mat3()
-    {
-        std::memset(m, 0, sizeof(m));
-    }
-
-    static mat3 Identity()
-    {
-        mat3 r;
-        r.m[0] = 1.0f;
-        r.m[4] = 1.0f;
-        r.m[8] = 1.0f;
-        return r;
-    }
-
-    static mat3 Translate(const vec2 &t)
-    {
-        mat3 r = Identity();
-        r.m[6] = t.x;
-        r.m[7] = t.y;
-        return r;
-    }
-
-    static mat3 Scale(const vec2 &s)
-    {
-        mat3 r = Identity();
-        r.m[0] = s.x;
-        r.m[4] = s.y;
-        return r;
-    }
-
-    static mat3 Rotate(float radians)
-    {
-        mat3 r = Identity();
-        float c = std::cos(radians);
-        float s = std::sin(radians);
-
-        r.m[0] = c;
-        r.m[1] = s;
-        r.m[3] = -s;
-        r.m[4] = c;
-
-        return r;
-    }
-
-    vec2 MultiplyPoint(const vec2 &v) const
-    {
-        return {
-            m[0] * v.x + m[3] * v.y + m[6],
-            m[1] * v.x + m[4] * v.y + m[7]};
-    }
-
-    mat3 operator*(const mat3 &o) const
-    {
-        mat3 r;
-        for (int c = 0; c < 3; c++)
-        {
-            for (int r0 = 0; r0 < 3; r0++)
-            {
-                r.m[c * 3 + r0] =
-                    m[0 * 3 + r0] * o.m[c * 3 + 0] +
-                    m[1 * 3 + r0] * o.m[c * 3 + 1] +
-                    m[2 * 3 + r0] * o.m[c * 3 + 2];
-            }
-        }
-        return r;
-    }
-};

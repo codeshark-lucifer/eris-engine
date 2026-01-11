@@ -22,17 +22,27 @@ public:
         this->height = h;
     }
 
-    void SetUniform(const Shader &shader)
+    mat4 GetProjection() const
     {
-        if (!entity)
-        return;
-        mat4 projection = mat4::Perspective(mathf::radians(fov), (float)width / (float)height, near, far);
-        
+        return mat4::Perspective(mathf::radians(fov), (float)width / (float)height, near, far);
+    }
+
+    mat4 GetView() const
+    {
         vec3 position = entity->transform.position;
         vec3 forward = entity->transform.rotation * vec3(0, 0, -1);
         vec3 up = entity->transform.rotation * vec3(0, 1, 0);
+
+        return mat4::LookAt(position, position + forward, up);
+    }
+
+    void SetUniform(const Shader &shader)
+    {
+        if (!entity)
+            return;
+        mat4 projection = GetProjection();
+        mat4 view = GetView();
         
-        mat4 view = mat4::LookAt(position, position + forward, up);
         shader.Use();
         shader.SetUniform("projection", projection);
         shader.SetUniform("view", view);
@@ -47,7 +57,7 @@ private:
     vec3 target = vec3(0.0f);
     vec3 direction = vec3(0.0f);
 
-    float fov   = 60.0f;
-    float near  = 0.3f;
-    float far   = 300.0f;
+    float fov = 60.0f;
+    float near = 0.3f;
+    float far = 300.0f;
 };
